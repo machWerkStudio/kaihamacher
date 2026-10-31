@@ -2363,3 +2363,70 @@ main:focus {
 .contact-item .social-links a:is(:hover,:focus-visible) {
   color: #131713;
 }
+
+/* Streetfood: Hinweise fürs Antippen – nur auf Touch-Geräten */
+.food-hint {
+  display: none;
+}
+@media (hover: none), (pointer: coarse) {
+  .food-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 -8px;
+    font-size: 13px !important;
+    color: var(--accent) !important;
+  }
+  .food-hint .ui-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    animation: tap-hint 2.2s ease-in-out infinite;
+  }
+  .food-menu li::after {
+    content: '↻';
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #d4f85b55;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--accent);
+    background: #10120fcc;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .food-menu li.is-open::after {
+    content: '↺';
+    transform: rotate(-180deg);
+  }
+  .food-menu li .food-text b {
+    padding-right: 22px;
+  }
+}
+@keyframes tap-hint { 0%,60%,100%{transform:none} 70%{transform:translateY(2px) scale(.9)} 80%{transform:none} }
+@media (hover: none), (pointer: coarse) {
+  .detail-content .food-hint {
+    margin: 20px 0 -6px;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  /* Dreh-Symbol ersetzt am Handy den grünen Punkt, damit lange Namen nicht umbrechen */
+  .food-menu b::before {
+    display: none;
+  }
+  .food-menu li .food-text b {
+    padding-right: 20px;
+  }
+  .food-menu li::after {
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+}

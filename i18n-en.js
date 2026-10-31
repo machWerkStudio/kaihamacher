@@ -106,5 +106,6 @@ window.HM_EN = {
 "skip": "Skip to content",
 "required": "Fields marked <span class=\"req\" aria-hidden=\"true\">*</span> are required.",
 "social": "Kai on social media",
-"newtab": "(new tab)"
+"newtab": "(new tab)",
+"foodHint": "Tap a tile to flip it."
 };

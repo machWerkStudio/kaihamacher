@@ -128,10 +128,23 @@
   const tiles = document.querySelectorAll('.food-menu li');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const flip = li => {
+    tiles.forEach(t => t.classList.remove('is-peek'));
     const open = !li.classList.contains('is-open');
     tiles.forEach(t => t.classList.remove('is-open'));
     li.classList.toggle('is-open', open);
   };
+  // Am Handy: erste Kachel dreht sich einmal kurz von selbst, damit klar ist, dass man tippen kann
+  const menu = document.querySelector('.food-menu');
+  if (menu && !finePointer.matches && !reduce && 'IntersectionObserver' in window) {
+    const peek = new IntersectionObserver(entries => {
+      if (!entries.some(e => e.isIntersecting)) return;
+      peek.disconnect();
+      const first = tiles[0];
+      setTimeout(() => { if (![...tiles].some(t => t.classList.contains('is-open'))) first.classList.add('is-open', 'is-peek'); }, 700);
+      setTimeout(() => { if (first.classList.contains('is-peek')) first.classList.remove('is-open', 'is-peek'); }, 2300);
+    }, { threshold: .6 });
+    peek.observe(menu);
+  }
   tiles.forEach(li => {
     li.addEventListener('click', () => { if (!finePointer.matches) flip(li); });
     li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(li); } });
