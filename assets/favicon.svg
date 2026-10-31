@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="15" fill="#131713"/>
+  <!-- "H" aus dem Hamacher-Logo: linker Balken höher, Querbalken mit schräger Kante -->
+  <g fill="#f5f6f0" transform="translate(17 9) scale(.1176) translate(-11 -12)">
+    <path d="M11 12H93V318H11Z"/>
+    <path d="M181 34H266V309H181V213H93V185L110 124H181Z"/>
+  </g>
+  <rect x="17" y="50" width="30" height="4" fill="#d4f85b"/>
+</svg>
