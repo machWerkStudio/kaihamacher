@@ -2430,3 +2430,17 @@ main:focus {
     font-size: 12px;
   }
 }
+
+/* Footer mit vier Links: am Handy sauber in zwei Spalten */
+@media (max-width: 720px) {
+  .footer-legal {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    column-gap: 28px;
+    row-gap: 0;
+  }
+  .footer-legal a {
+    font-size: 13px;
+  }
+}
