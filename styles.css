@@ -1649,10 +1649,6 @@ mark.todo {
   background: linear-gradient(145deg,#d4f85b08,transparent 70%);
   transition: border-color .2s,transform .3s cubic-bezier(.2,.8,.2,1);
 }
-.food-menu li:hover {
-  border-color: #d4f85b66;
-  transform: translateY(-2px);
-}
 .food-menu b {
   font-size: 15px;
   font-weight: 600;
@@ -1782,29 +1778,55 @@ details[open] .food-menu li:nth-child(6) {
   transform: translateY(8px);
   transition: opacity .3s .05s,transform .4s .05s cubic-bezier(.2,.8,.2,1);
 }
-.food-menu li:is(:hover,:focus-visible,:focus) {
+.food-menu li:is(.is-open,:focus-visible) {
   border-color: #d4f85b88;
   background: radial-gradient(ellipse at 50% 40%,#d4f85b1c,transparent 70%);
 }
-.food-menu li:is(:hover,:focus-visible,:focus) .food-text {
+.food-menu li:is(.is-open,:focus-visible) .food-text {
   opacity: 0;
   transform: translateY(-12px);
 }
-.food-menu li:is(:hover,:focus-visible,:focus) .food-art {
+.food-menu li:is(.is-open,:focus-visible) .food-art {
   opacity: 1;
   transform: none;
 }
-.food-menu li:is(:hover,:focus-visible,:focus) .food-caption {
+.food-menu li:is(.is-open,:focus-visible) .food-caption {
   opacity: 1;
   transform: none;
 }
-.food-menu li:is(:hover,:focus-visible,:focus) .steam {
+.food-menu li:is(.is-open,:focus-visible) .steam {
   animation: steam 1.8s ease-in-out infinite;
   animation-delay: var(--d,0s);
 }
 .food-menu li:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
+}
+/* Hover nur bei Maus/Trackpad – am Handy klappt Antippen die Kachel um (Klasse is-open, script.js) */
+@media (hover: hover) and (pointer: fine) {
+  .food-menu li:hover {
+    transform: translateY(-2px);
+  }
+  .food-menu li:hover {
+    border-color: #d4f85b88;
+    background: radial-gradient(ellipse at 50% 40%,#d4f85b1c,transparent 70%);
+  }
+  .food-menu li:hover .food-text {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  .food-menu li:hover .food-art {
+    opacity: 1;
+    transform: none;
+  }
+  .food-menu li:hover .food-caption {
+    opacity: 1;
+    transform: none;
+  }
+  .food-menu li:hover .steam {
+    animation: steam 1.8s ease-in-out infinite;
+    animation-delay: var(--d,0s);
+  }
 }
 @keyframes steam { 0%{opacity:0;transform:translateY(6px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-8px)} }
 @media (max-width: 420px) {

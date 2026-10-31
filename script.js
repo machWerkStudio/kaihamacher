@@ -124,6 +124,19 @@
     }
   });
 
+  // Streetfood-Kacheln: am Handy per Antippen umdrehen und wieder zurück (Maus nutzt Hover)
+  const tiles = document.querySelectorAll('.food-menu li');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const flip = li => {
+    const open = !li.classList.contains('is-open');
+    tiles.forEach(t => t.classList.remove('is-open'));
+    li.classList.toggle('is-open', open);
+  };
+  tiles.forEach(li => {
+    li.addEventListener('click', () => { if (!finePointer.matches) flip(li); });
+    li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(li); } });
+  });
+
   // Inhalte beim Scrollen einblenden
   if (!reduce && 'IntersectionObserver' in window) {
     const targets = document.querySelectorAll('.section-head, .information h2, .contact-location, .contact-item, .map-card, .social-label, .social-links li, .contact-form, .accordion details');
