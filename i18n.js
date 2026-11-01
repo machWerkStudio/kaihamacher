@@ -24,7 +24,7 @@
     ['.contact-form textarea', 'placeholder', 'What are you planning? Ideally with dates and location.'],
     ['.footer-legal', 'aria-label', 'Site navigation'],
     ['.social-whatsapp', 'href', 'https://wa.me/4917634071561?text=Hi%20Kai%2C%20I%20have%20an%20enquiry%20via%20your%20digital%20business%20card.'],
-    ['meta[name="description"]', 'content', 'Hamacher Marketing – the digital business card of Kai Hamacher. Contact and services at a glance.']
+    ['meta[name="description"]', 'content', 'Marketing from Fürstenwalde, Germany: content, design & print, guerrilla campaigns, promo stands, posters and street food. Contact owner Kai Hamacher directly.']
   ];
 
   const nodes = [...document.querySelectorAll('[data-i18n]')].map(el => ({ el, de: el.innerHTML }));

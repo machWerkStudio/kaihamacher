@@ -10,7 +10,7 @@ window.HM_EN = {
 "k7": "01 / CONTACT",
 "k8": "Let's talk",
 "k9": "Direct line<span>.</span>",
-"k10": "Fürstenwalde on the Spree",
+"k10": "Fürstenwalde on the Spree · working across Berlin and Brandenburg",
 "k11": "Phone",
 "k12": "Email",
 "k13": "Or write to us right here ↓",
