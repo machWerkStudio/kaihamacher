@@ -2444,3 +2444,96 @@ main:focus {
     font-size: 13px;
   }
 }
+
+/* Beitragsbild in einem Angebot (z. B. Streetfood-Stand) */
+.service-photo {
+  margin: 4px 0 20px;
+  border: 1px solid #3d4733;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #151913;
+}
+.service-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+details[open] .service-photo img {
+  animation: photo-in .9s cubic-bezier(.2,.8,.2,1) both;
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-photo:hover img {
+    transform: scale(1.04);
+  }
+}
+@keyframes photo-in { from { opacity: 0; transform: scale(1.05); } }
+@media (max-width: 720px) {
+  .service-photo {
+    border-radius: 14px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Streetfood-Kacheln mit echten Fotos: Foto füllt die Kachel, Name liegt auf einem Verlauf */
+.food-menu .food-photo {
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  translate: none;
+  border-radius: inherit;
+  transform: scale(1.08);
+}
+.food-menu li:has(.food-photo) .food-caption {
+  bottom: 0;
+  padding: 26px 10px 10px;
+  background: linear-gradient(transparent, #0b0d0ae6);
+  border-radius: 0 0 14px 14px;
+}
+.food-menu li:is(.is-open,:focus-visible) .food-photo {
+  transform: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .food-menu li:hover .food-photo {
+    transform: none;
+  }
+}
+
+/* Größeres Porträt in der Hero-Karte */
+.monogram {
+  width: 136px;
+  height: 136px;
+  border-radius: 34px;
+}
+.monogram .portrait {
+  border-radius: 33px;
+}
+.monogram span {
+  width: 34px;
+  height: 34px;
+  right: -10px;
+  bottom: -8px;
+}
+.monogram span .ui-icon {
+  width: 19px;
+  height: 19px;
+}
+@media (max-width: 720px) {
+  .monogram {
+    width: 112px;
+    height: 112px;
+    border-radius: 28px;
+  }
+  .monogram .portrait {
+    border-radius: 27px;
+  }
+  .monogram span {
+    width: 30px;
+    height: 30px;
+  }
+}
